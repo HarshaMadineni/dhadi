@@ -1,5 +1,6 @@
 <script type="text/javascript" src="jquery.min.js"></script>
 <?php
+//eragqagreqa
 require_once "pdo.php";
 session_start();
 $curr_time = time();
