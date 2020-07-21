@@ -1,17 +1,24 @@
 <script type="text/javascript" src="jquery.min.js"></script>
 <?php
-//eragqagreqa
 require_once "pdo.php";
 session_start();
 $curr_time = time();
+$table_name_stmt = $pdo->prepare( "SELECT gameid FROM gameids WHERE
+                    p1_last_seen < ".($curr_time - 8));
+$table_name_stmt->execute();
+$table_names = $table_name_stmt->fetchAll();
+//echo "<p>".$table_names[1][0]."</p>";
+//print_r($table_names);
+foreach ($table_names as $i) {
+  $drop_game_table_sql = "DROP TABLE game".$i[0];
+  $pdo->exec($drop_game_table_sql);
+}
 $clean_gameids_sql1 = "INSERT INTO dead_gameids (gameid, creator,
                       opponent, time_created) SELECT gameid,
                       creator, opponent, time FROM gameids WHERE
                       p1_last_seen < ".($curr_time - 300);
 
 $clean_gameids_sql2 = "DELETE FROM gameids WHERE p1_last_seen < ".($curr_time - 300);
-echo "<p>".$clean_gameids_sql1."</p>";
-echo "<p>".$clean_gameids_sql2."</p>";
 $pdo->exec($clean_gameids_sql1);
 $pdo->exec($clean_gameids_sql2);
 if ( isset($_SESSION['error']) ) {
@@ -25,6 +32,7 @@ if( isset($_POST['submit']) ) {
         header("Location: index.php");
         return;
     }
+
     elseif( strlen($_POST['name']) < 1 ) {
         $_SESSION['error'] = 'Player name not filled';
         header("Location: index.php");
@@ -932,7 +940,7 @@ function confirm_online() {
         }
       }
   });
-  setTimeout('confirm_online()', 3000);
+  setTimeout('confirm_online()', 2000);
 }
 confirm_online();
 
