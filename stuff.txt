@@ -1,0 +1,8 @@
+000webhost: dhadigameonline@gmail.com, dhadi@123
+database: pwd: DhadiGame@123
+
+
+CREATE TABLE `id14222306_main`.`gameids` ( `id` INT NOT NULL AUTO_INCREMENT , `gameid` INT NOT NULL , `player` VARCHAR NOT NULL , `time` INT NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE newtable LIKE oldtable; 
+INSERT INTO newtable SELECT * FROM oldtable;
