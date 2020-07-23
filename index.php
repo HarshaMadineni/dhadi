@@ -1015,7 +1015,6 @@ var not_in_sleep = 0;
 check_opp_move();
 
 function clickonc(token_obj) {
-  console.log("regwguvy");
   if ( opp_status !== "Online" ) {
     return;
   }
