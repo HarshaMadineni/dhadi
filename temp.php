@@ -958,16 +958,18 @@ var cgpos = [["calc(var(--pos1t) - var(--cd)/2)", "calc(var(--pos1l) - var(--cd)
   ["calc(var(--pos16t) - var(--cd)/2)", "calc(var(--pos16l) - var(--cd)/2)"], ["calc(var(--pos17t) - var(--cd)/2)", "calc(var(--pos17l) - var(--cd)/2)"], ["calc(var(--pos18t) - var(--cd)/2)", "calc(var(--pos18l) - var(--cd)/2)"],
   ["calc(var(--pos19t) - var(--cd)/2)", "calc(var(--pos19l) - var(--cd)/2)"], ["calc(var(--pos20t) - var(--cd)/2)", "calc(var(--pos20l) - var(--cd)/2)"], ["calc(var(--pos21t) - var(--cd)/2)", "calc(var(--pos21l) - var(--cd)/2)"],
   ["calc(var(--pos22t) - var(--cd)/2)", "calc(var(--pos22l) - var(--cd)/2)"], ["calc(var(--pos23t) - var(--cd)/2)", "calc(var(--pos23l) - var(--cd)/2)"], ["calc(var(--pos24t) - var(--cd)/2)", "calc(var(--pos24l) - var(--cd)/2)"]];
+
 var pointers = document.getElementsByClassName("pointer");
 var pcircles = document.getElementsByClassName("circle");
 var tokens_list = [];
-var position_props = [[1,1,1,0], [2,1,1,0], [3,1,1,0], [3,2,1,0], [3,3,1,0], [2,3,1,0], [1,3,1,0],
-                      [1,2,1,0], [1,1,2,0], [2,1,2,0], [3,1,2,0], [3,2,2,0], [3,3,2,0], [2,3,2,0],
-                      [1,3,2,0], [1,2,2,0], [1,1,3,0], [2,1,3,0], [3,1,3,0], [3,2,3,0], [3,3,3,0],
-                      [2,3,3,0], [1,3,3,0], [1,2,3,0]];
 var opp_last_move_data = null;
 var first_player = 1;
-var move_no = 1;
+if ( first_player === player ) {
+  var whose_turn = "mine";
+}
+else {
+  var whose_turn = "opponent";
+}
 
 //token class
 function token (id, int_pos) {
@@ -1015,7 +1017,6 @@ var not_in_sleep = 0;
 check_opp_move();
 
 function clickonc(token_obj) {
-  console.log("regwguvy");
   if ( opp_status !== "Online" ) {
     return;
   }
@@ -1059,6 +1060,7 @@ function clickonp(pointer_id) {
   console.log("clicked on pointer");
   move(selected_token_obj, pointer_id);
   send_move(selected_token_obj, pointer_id);
+  whose_turn = "opponent";
   selected_token_obj.selected = 0;
   selected_token_obj = null;
   play_status = "waiting";
@@ -1068,19 +1070,17 @@ function clickonp(pointer_id) {
 function move (token_obj, pos_id) {
   document.getElementsByClassName("circle")[token_obj.id-1].style.top = cgpos[pos_id-1][0];
   document.getElementsByClassName("circle")[token_obj.id-1].style.left = cgpos[pos_id-1][1];
-  position_props[pos_id-1][3] = token_obj.id;
   if ( token_obj.pos_id !== null) {
-    //occupied_positions.splice(occupied_positions.indexOf(token_obj.pos_id), 1);
-    position_props[token_obj.pos_id-1][3] = token_obj.id;
+    occupied_positions.splice(occupied_positions.indexOf(token_obj.pos_id), 1);
   }
   else {
     not_in_sleep++;
   }
   token_obj.pos_id = pos_id;
   token_obj.pos = cgpos[pos_id-1];
-  //occupied_positions.push(pos_id);
+  occupied_positions.push(pos_id);
   token_obj.status = "onboard";
-  move_no++;
+  whose_turn = "mine";
 }
 
 function send_move (token_obj, pos_id) {
@@ -1101,7 +1101,7 @@ function show_pointers () {
   if ( selected_token_obj.status === "sleep" ) {
     console.log("selected token was in sleep");
     for (var i = 0; i < 24; i++) {
-      if ( position_props[i][3] !== 0 ) {
+      if ( occupied_positions.includes(i+1) ) {
         continue;
       }
       else{
@@ -1112,16 +1112,19 @@ function show_pointers () {
 
   if ( selected_token_obj.status === "onboard" ) {
     console.log("selected token was onboard");
-     var curr_pos_props = position_props[selected_token_obj.pos_id - 1];
+    var position_labels = [[1,1,1], [2,1,1], [3,1,1], [3,2,1], [3,3,1], [2,3,1], [1,3,1], [1,2,1], [1,1,2], [2,1,2],
+     [3,1,2], [3,2,2], [3,3,2], [2,3,2], [1,3,2], [1,2,2], [1,1,3], [2,1,3], [3,1,3], [3,2,3], [3,3,3],
+     [2,3,3], [1,3,3], [1,2,3]];
+     var curr_pos_label = position_labels[selected_token_obj.pos_id - 1];
      for (var i = 0; i < 24; i++) {
-       if ( position_props[i][3] === 0 ) {
-         var check_pos_props = position_props[i];
-         var x = Math.abs(curr_pos_props[0] - check_pos_props[0]);
-         x += Math.abs(curr_pos_props[1] - check_pos_props[1]);
-         x += Math.abs(curr_pos_props[2] - check_pos_props[2]);
+       if ( !occupied_positions.includes(i+1) ) {
+         var check_pos_label = position_labels[i];
+         var x = Math.abs(curr_pos_label[0] - check_pos_label[0]);
+         x += Math.abs(curr_pos_label[1] - check_pos_label[1]);
+         x += Math.abs(curr_pos_label[2] - check_pos_label[2]);
          if ( x <= 1) {
-           if ( !((curr_pos_props[0] + curr_pos_props[1])%2 === 0 &&
-                Math.abs(check_pos_props[2] - curr_pos_props[2]) === 1) ) {
+           if ( !((curr_pos_label[0] + curr_pos_label[1])%2 === 0 &&
+                Math.abs(check_pos_label[2] - curr_pos_label[2]) === 1) ) {
                   pointers[i].style.display = "block";
                 }
          }
@@ -1160,8 +1163,7 @@ function canclickont(callback, token_obj) {
 }
 
 function check_opp_move() {
-  console.log("entered check_opp_move function");
-  if ( (move_no%2 === 0 && player === 1) || (move_no%2 !== 0 && player === 2) ) {
+  if ( whose_turn === "opponent" ) {
     console.log("checking for opponent move");
     $.ajax({
       url: "opp_move.php",
@@ -1171,11 +1173,11 @@ function check_opp_move() {
         player: player
       },
       success: function(data) {
-        console.log(data);
         if ( data !== "waiting" ) {
           if ( data !== opp_last_move_data || opp_last_move_data === null) {
             var opp_last_move_data = data;
             opp_move_token_obj = tokens_list[parseInt(data.split(",")[0])-1];
+            console.log(data);
             var opp_move_pos_id = parseInt(data.split(",")[1]);
             move(opp_move_token_obj, opp_move_pos_id);
           }
@@ -1183,7 +1185,7 @@ function check_opp_move() {
       }
     });
   }
-  setTimeout('check_opp_move()', 500);
+  setTimeout('check_opp_move()', 2000);
 }
 
 

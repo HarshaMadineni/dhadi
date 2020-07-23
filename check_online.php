@@ -20,5 +20,4 @@ if ( $player === "2" ) {
   echo $row['p1_last_seen'];
   exit();
 }
-echo $_POST['time'];
 ?>
