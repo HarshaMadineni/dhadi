@@ -487,6 +487,149 @@ if( isset($_SESSION['error']) || !isset($_POST['submit']) ) {
 
 </style>
 
+<!--circles-->
+<style>
+
+  .circle{
+    position: absolute;
+    height: var(--cd);
+    width: var(--cd);
+    border-radius: 50%;
+  }
+
+  #c1{
+    background-color: var(--p1color);
+    left: var(--cl1);
+    top: var(--ct1);
+  }
+
+  #c2{
+    background-color: var(--p1color);
+    left: calc(var(--cl1) + var(--cxdif));
+    top: var(--ct1);
+  }
+
+  #c3{
+    background-color: var(--p1color);
+    left: calc(var(--cl1) + 2*var(--cxdif));
+    top: var(--ct1);
+  }
+
+  #c4{
+    background-color: var(--p1color);
+    left: calc(var(--cl1) + 3*var(--cxdif));
+    top: var(--ct1);
+  }
+
+  #c5{
+    background-color: var(--p1color);
+    left: var(--cl1);
+    top: calc(var(--ct1) + var(--cxdif));
+  }
+
+  #c6{
+    background-color: var(--p1color);
+    left: calc(var(--cl1) + var(--cxdif));
+    top: calc(var(--ct1) + var(--cxdif));
+  }
+
+  #c7{
+    background-color: var(--p1color);
+    left: calc(var(--cl1) + 2*var(--cxdif));
+    top: calc(var(--ct1) + var(--cxdif));
+  }
+
+  #c8{
+    background-color: var(--p1color);
+    left: calc(var(--cl1) + 3*var(--cxdif));
+    top: calc(var(--ct1) + var(--cxdif));
+  }
+
+  #c9{
+    background-color: var(--p1color);
+    left: var(--cl1);
+    top: calc(var(--ct1) + 2*var(--cxdif));
+  }
+
+  #c10{
+    background-color: var(--p1color);
+    left: calc(var(--cl1) + var(--cxdif));
+    top: calc(var(--ct1) + 2*var(--cxdif));
+  }
+
+  #c11{
+    background-color: var(--p1color);
+    left: calc(var(--cl1) + 2*var(--cxdif));
+    top: calc(var(--ct1) + 2*var(--cxdif));
+  }
+
+  #c12{
+    background-color: var(--p2color);
+    left: var(--cl2);
+    top: var(--ct1);
+  }
+
+  #c13{
+    background-color: var(--p2color);
+    left: calc(var(--cl2) + var(--cxdif));
+    top: var(--ct1);
+  }
+
+  #c14{
+    background-color: var(--p2color);
+    left: calc(var(--cl2) + 2*var(--cxdif));
+    top: var(--ct1);
+  }
+
+  #c15{
+    background-color: var(--p2color);
+    left: calc(var(--cl2) + 3*var(--cxdif));
+    top: var(--ct1);
+  }
+
+  #c16{
+    background-color: var(--p2color);
+    left: var(--cl2);
+    top: calc(var(--ct1) + var(--cxdif));
+  }
+
+  #c17{
+    background-color: var(--p2color);
+    left: calc(var(--cl2) + var(--cxdif));
+    top: calc(var(--ct1) + var(--cxdif));
+  }
+
+  #c18{
+    background-color: var(--p2color);
+    left: calc(var(--cl2) + 2*var(--cxdif));
+    top: calc(var(--ct1) + var(--cxdif));
+  }
+
+  #c19{
+    background-color: var(--p2color);
+    left: calc(var(--cl2) + 3*var(--cxdif));
+    top: calc(var(--ct1) + var(--cxdif));
+  }
+
+  #c20{
+    background-color: var(--p2color);
+    left: var(--cl2);
+    top: calc(var(--ct1) + 2*var(--cxdif));
+  }
+
+  #c21{
+    background-color: var(--p2color);
+    left: calc(var(--cl2) + var(--cxdif));
+    top: calc(var(--ct1) + 2*var(--cxdif));
+  }
+
+  #c22{
+    background-color: var(--p2color);
+    left: calc(var(--cl2) + 2*var(--cxdif));
+    top: calc(var(--ct1) + 2*var(--cxdif));
+  }
+</style>
+
 <!--pointers-->
 <style>
   .pointer{
@@ -666,149 +809,6 @@ if( isset($_SESSION['error']) || !isset($_POST['submit']) ) {
   }
 </style>
 
-<!--circles-->
-<style>
-
-  .circle{
-    position: absolute;
-    height: var(--cd);
-    width: var(--cd);
-    border-radius: 50%;
-  }
-
-  #c1{
-    background-color: var(--p1color);
-    left: var(--cl1);
-    top: var(--ct1);
-  }
-
-  #c2{
-    background-color: var(--p1color);
-    left: calc(var(--cl1) + var(--cxdif));
-    top: var(--ct1);
-  }
-
-  #c3{
-    background-color: var(--p1color);
-    left: calc(var(--cl1) + 2*var(--cxdif));
-    top: var(--ct1);
-  }
-
-  #c4{
-    background-color: var(--p1color);
-    left: calc(var(--cl1) + 3*var(--cxdif));
-    top: var(--ct1);
-  }
-
-  #c5{
-    background-color: var(--p1color);
-    left: var(--cl1);
-    top: calc(var(--ct1) + var(--cxdif));
-  }
-
-  #c6{
-    background-color: var(--p1color);
-    left: calc(var(--cl1) + var(--cxdif));
-    top: calc(var(--ct1) + var(--cxdif));
-  }
-
-  #c7{
-    background-color: var(--p1color);
-    left: calc(var(--cl1) + 2*var(--cxdif));
-    top: calc(var(--ct1) + var(--cxdif));
-  }
-
-  #c8{
-    background-color: var(--p1color);
-    left: calc(var(--cl1) + 3*var(--cxdif));
-    top: calc(var(--ct1) + var(--cxdif));
-  }
-
-  #c9{
-    background-color: var(--p1color);
-    left: var(--cl1);
-    top: calc(var(--ct1) + 2*var(--cxdif));
-  }
-
-  #c10{
-    background-color: var(--p1color);
-    left: calc(var(--cl1) + var(--cxdif));
-    top: calc(var(--ct1) + 2*var(--cxdif));
-  }
-
-  #c11{
-    background-color: var(--p1color);
-    left: calc(var(--cl1) + 2*var(--cxdif));
-    top: calc(var(--ct1) + 2*var(--cxdif));
-  }
-
-  #c12{
-    background-color: var(--p2color);
-    left: var(--cl2);
-    top: var(--ct1);
-  }
-
-  #c13{
-    background-color: var(--p2color);
-    left: calc(var(--cl2) + var(--cxdif));
-    top: var(--ct1);
-  }
-
-  #c14{
-    background-color: var(--p2color);
-    left: calc(var(--cl2) + 2*var(--cxdif));
-    top: var(--ct1);
-  }
-
-  #c15{
-    background-color: var(--p2color);
-    left: calc(var(--cl2) + 3*var(--cxdif));
-    top: var(--ct1);
-  }
-
-  #c16{
-    background-color: var(--p2color);
-    left: var(--cl2);
-    top: calc(var(--ct1) + var(--cxdif));
-  }
-
-  #c17{
-    background-color: var(--p2color);
-    left: calc(var(--cl2) + var(--cxdif));
-    top: calc(var(--ct1) + var(--cxdif));
-  }
-
-  #c18{
-    background-color: var(--p2color);
-    left: calc(var(--cl2) + 2*var(--cxdif));
-    top: calc(var(--ct1) + var(--cxdif));
-  }
-
-  #c19{
-    background-color: var(--p2color);
-    left: calc(var(--cl2) + 3*var(--cxdif));
-    top: calc(var(--ct1) + var(--cxdif));
-  }
-
-  #c20{
-    background-color: var(--p2color);
-    left: var(--cl2);
-    top: calc(var(--ct1) + 2*var(--cxdif));
-  }
-
-  #c21{
-    background-color: var(--p2color);
-    left: calc(var(--cl2) + var(--cxdif));
-    top: calc(var(--ct1) + 2*var(--cxdif));
-  }
-
-  #c22{
-    background-color: var(--p2color);
-    left: calc(var(--cl2) + 2*var(--cxdif));
-    top: calc(var(--ct1) + 2*var(--cxdif));
-  }
-</style>
-
 <div id="top"></div>
 <div id="game">
   <div id="lines">
@@ -927,6 +927,9 @@ function confirm_online() {
         }
         else {
           if ( Math.floor((new Date()).getTime() / 1000) - parseInt(result) > 10 ) {
+            delete_tables();
+          }
+          function delete_tables() {
             //console.log("deleting tables");
             $.ajax({
                 url: "delete_tables.php",
@@ -953,11 +956,11 @@ var cgpos = [["calc(var(--pos1t) - var(--cd)/2)", "calc(var(--pos1l) - var(--cd)
   ["calc(var(--pos16t) - var(--cd)/2)", "calc(var(--pos16l) - var(--cd)/2)"], ["calc(var(--pos17t) - var(--cd)/2)", "calc(var(--pos17l) - var(--cd)/2)"], ["calc(var(--pos18t) - var(--cd)/2)", "calc(var(--pos18l) - var(--cd)/2)"],
   ["calc(var(--pos19t) - var(--cd)/2)", "calc(var(--pos19l) - var(--cd)/2)"], ["calc(var(--pos20t) - var(--cd)/2)", "calc(var(--pos20l) - var(--cd)/2)"], ["calc(var(--pos21t) - var(--cd)/2)", "calc(var(--pos21l) - var(--cd)/2)"],
   ["calc(var(--pos22t) - var(--cd)/2)", "calc(var(--pos22l) - var(--cd)/2)"], ["calc(var(--pos23t) - var(--cd)/2)", "calc(var(--pos23l) - var(--cd)/2)"], ["calc(var(--pos24t) - var(--cd)/2)", "calc(var(--pos24l) - var(--cd)/2)"]];
-var dcpos_props = [["var(--dct1)", "var(--dcl1)", 0], ["var(--dct2)", "var(--dcl2)", 0], ["var(--dct3)", "var(--dcl3)", 0], ["var(--dct4)", "var(--dcl4)", 0], ["var(--dct5)", "var(--dcl5)", 0],
-                    ["var(--dct6)", "var(--dcl6)", 0], ["var(--dct7)", "var(--dcl7)", 0], ["var(--dct8)", "var(--dcl8)", 0], ["var(--dct9)", "var(--dcl9)", 0], ["var(--dct10)", "var(--dcl10)", 0],
-                    ["var(--dct11)", "var(--dcl11)", 0], ["var(--dct12)", "var(--dcl12)", 0], ["var(--dct13)", "var(--dcl13)", 0], ["var(--dct14)", "var(--dcl14)", 0], ["var(--dct15)", "var(--dcl15)", 0],
-                    ["var(--dct16)", "var(--dcl16)", 0], ["var(--dct17)", "var(--dcl17)", 0], ["var(--dct18)", "var(--dcl18)", 0], ["var(--dct19)", "var(--dcl19)", 0], ["var(--dct20)", "var(--dcl20)", 0],
-                    ["var(--dct21)", "var(--dcl21)", 0], ["var(--dct22)", "var(--dcl22)", 0]]
+var dcpos_props = [[var(--dct1), var(--dcl1), 0], [var(--dct2), var(--dcl2), 0], [var(--dct3), var(--dcl3), 0], [var(--dct4), var(--dcl4), 0], [var(--dct5), var(--dcl5), 0],
+                    [var(--dct6), var(--dcl6), 0], [var(--dct7), var(--dcl7), 0], [var(--dct8), var(--dcl8), 0], [var(--dct9), var(--dcl9), 0], [var(--dct10), var(--dcl10), 0],
+                    [var(--dct11), var(--dcl11), 0], [var(--dct12), var(--dcl12), 0], [var(--dct13), var(--dcl13), 0], [var(--dct14), var(--dcl14), 0], [var(--dct15), var(--dcl15), 0],
+                    [var(--dct16), var(--dcl16), 0], [var(--dct17), var(--dcl17), 0], [var(--dct18), var(--dcl18), 0], [var(--dct19), var(--dcl19), 0], [var(--dct20), var(--dcl20), 0],
+                    [var(--dct21), var(--dcl21), 0], [var(--dct22), var(--dcl22), 0]]
 var pointers = document.getElementsByClassName("pointer");
 var pcircles = document.getElementsByClassName("circle");
 var tokens_list = [];
@@ -968,11 +971,11 @@ var position_props = [[1,1,1,0], [2,1,1,0], [3,1,1,0], [3,2,1,0], [3,3,1,0], [2,
 var opp_last_move_data = null;
 var first_player = 1;
 var move_no = 1;
-var opp_last_move_data;
 
 //token class
 function token (id, int_pos) {
   this.id = id;
+  this.pos = int_pos;
   this.status = "sleep";
   this.selected = 0;
   this.pos_id = null;
@@ -1009,16 +1012,13 @@ function token (id, int_pos) {
 
 var play_status = "waiting";
 var selected_token_obj = null;
+var occupied_positions = [];
 var not_in_sleep = 0;
-var tokens_in_dhadi = [];
-var dhadi_tokens_list = [];
-var old_tokens_in_dhadi = [];
-var new_tokens_in_dhadi = [];
 
 check_opp_move();
 
 function clickonc(token_obj) {
-  if ( opp_status !== "Online" ) { //review
+  if ( opp_status !== "Online" ) {
     return;
   }
   canclickont(function(result) { //using callback, refer to https://stackoverflow.com/questions/14220321/how-do-i-return-the-response-from-an-asynchronous-call
@@ -1058,181 +1058,71 @@ function clickonc(token_obj) {
 }
 
 function clickonp(pointer_id) {
-  if ( new_tokens_in_dhadi.length > 0 ) {
-    console.log("clicked on opp token");
-    move(tokens_list[position_props[pointer_id-1][3]-1], 0);
-    move_no++;
-    new_tokens_in_dhadi = [];
-    send_move(tokens_list[position_props[pointer_id-1][3]-1].id, 0);
-    tokens_list[position_props[pointer_id-1][3]-1].pos_id = 0;
-    tokens_list[position_props[pointer_id-1][3]-1].status = "dead";
-    position_props[pointer_id-1][3] = 0;
-    play_status = "waiting";
-  }
-  else {
-    console.log("clicked on pointer");
-    move(selected_token_obj, pointer_id);
-    move_no++;
-    send_move(selected_token_obj.id, pointer_id);
-    selected_token_obj.selected = 0;
-    selected_token_obj = null;
-    play_status = "waiting";
-    hide_pointers();
-    if ( new_tokens_in_dhadi.length > 0 ) {
-      show_opp_token_pointers();
-      move_no--;
-    }
-  }
+  console.log("clicked on pointer");
+  move(selected_token_obj, pointer_id);
+  send_move(selected_token_obj, pointer_id);
+  selected_token_obj.selected = 0;
+  selected_token_obj = null;
+  play_status = "waiting";
+  hide_pointers();
 }
 
 function move (token_obj, pos_id) {
-  if ( pos_id === 0 ) {
-    hide_pointers();
-    for ( var i = 0; i<22; i++ ) {
-      if ( dcpos_props[i][2] === 0 && ( (i < 11 && token_obj.id > 11) || (i > 10 && token_obj.id < 12) ) ) {
-        document.getElementsByClassName("circle")[token_obj.id-1].style.top = "-100px";
-        document.getElementsByClassName("circle")[token_obj.id-1].style.left = "-100px";
-        if ( (i === 10 && token_obj.id > 11) || (i === 21 && token_obj.id < 12)) {
-          send_move(23, 23);
-          alert("You Win!, you'll be returned to the home screen");
-          window.location.replace("http://localhost/dhadi/");
-        }
-        return;
-      }
-    }
+  document.getElementsByClassName("circle")[token_obj.id-1].style.top = cgpos[pos_id-1][0];
+  document.getElementsByClassName("circle")[token_obj.id-1].style.left = cgpos[pos_id-1][1];
+  position_props[pos_id-1][3] = token_obj.id;
+  if ( token_obj.pos_id !== null) {
+    //occupied_positions.splice(occupied_positions.indexOf(token_obj.pos_id), 1);
+    position_props[token_obj.pos_id-1][3] = token_obj.id;
   }
   else {
-    console.log("fagvrsfgr");
-    document.getElementsByClassName("circle")[token_obj.id-1].style.top = cgpos[pos_id-1][0];
-    document.getElementsByClassName("circle")[token_obj.id-1].style.left = cgpos[pos_id-1][1];
-    console.log("rgqaer");
-    position_props[pos_id-1][3] = token_obj.id;
-    if ( token_obj.pos_id !== null) {
-      position_props[token_obj.pos_id-1][3] = 0;
-    }
-    else {
-      not_in_sleep++;
-    }
-    token_obj.pos_id = pos_id;
-    token_obj.status = "onboard";
-    check_new_dhadi();
-    if (  new_tokens_in_dhadi.length > 0 && ( (new_tokens_in_dhadi[0] > 11 && player === 1) || (new_tokens_in_dhadi[0] < 12 && player === 2) ) ) {
-      show_dhadi_pointers();
-      move_no--;
+    not_in_sleep++;
+  }
+  token_obj.pos_id = pos_id;
+  token_obj.pos = cgpos[pos_id-1];
+  //occupied_positions.push(pos_id);
+  token_obj.status = "onboard";
+  move_no++;
+  if ( check_new_dhadi() === 1 || check_new_dhadi() === 2 ) {
+    move_no++;
+  }
+}
+
+function check_new_dhadi() {
+  for (var i = 0; i < 12; i++) {
+    if( position_props[i*2][3] !== 0 && position_props[i*2+1][3] !== 0 ) {
+      if( position_props[i*2][0] === 1 && position_props[i*2][1] === 3 ) {
+        if( position_props[i*2-6][3] !== 0 ) {
+          if ( position_props[i*2][3] < 12 && position_props[i*2+1][3] < 12 && position_props[i*2-6][3] < 12 ) {
+            return 1;
+          }
+          else if ( position_props[i*2][3] > 11 && position_props[i*2+1][3] > 11 && position_props[i*2-6][3] > 11 ) {
+            return 2;
+          }
+          //alert("dhadi");
+        }
+      }
+      else {
+        if( position_props[i*2+2][3] !== 0 ) {
+          if ( position_props[i*2][3] < 12 && position_props[i*2+1][3] < 12 && position_props[i*2+2][3] < 12 ) {
+            return 1;
+          }
+          else if ( position_props[i*2][3] > 11 && position_props[i*2+1][3] > 11 && position_props[i*2+2][3] > 11 ) {
+            return 2;
+          }
+          //alert("dhadi");
+        }
+      }
     }
   }
 }
 
-function check_new_dhadi(pos_id) {
-  if ( typeof pos_id !== "undefined" ){
-    var test_tokens_in_dhadi = [];
-    if ( player === 1 ) {
-      position_props[pos_id-1][3] = -1;
-    }
-    else {
-      position_props[pos_id-1][3] = 23;
-    }
-    for (var i = 0; i < 12; i++) {
-      if( position_props[i*2][0] === 1 && position_props[i*2][1] === 3 ) {
-        if( position_props[i*2][3] !== 0 && position_props[i*2+1][3] !== 0 && position_props[i*2-6][3] !== 0 ) {
-          if ( position_props[i*2][3] < 12 && position_props[i*2+1][3] < 12 && position_props[i*2-6][3] < 12 ) {
-            test_tokens_in_dhadi.push(position_props[i*2][3], position_props[i*2+1][3], position_props[i*2-6][3]);
-          }
-          else if ( position_props[i*2][3] > 11 && position_props[i*2+1][3] > 11 && position_props[i*2-6][3] > 11 ) {
-            test_tokens_in_dhadi.push(position_props[i*2][3], position_props[i*2+1][3], position_props[i*2-6][3]);
-          }
-        }
-      }
-      else {
-        if( position_props[i*2][3] !== 0 && position_props[i*2+1][3] !== 0 && position_props[i*2+2][3] !== 0 ) {
-          if ( position_props[i*2][3] < 12 && position_props[i*2+1][3] < 12 && position_props[i*2+2][3] < 12 ) {
-            test_tokens_in_dhadi.push(position_props[i*2][3], position_props[i*2+1][3], position_props[i*2+2][3]);
-          }
-          else if ( position_props[i*2][3] > 11 && position_props[i*2+1][3] > 11 && position_props[i*2+2][3] > 11 ) {
-            test_tokens_in_dhadi.push(position_props[i*2][3], position_props[i*2+1][3], position_props[i*2+2][3]);
-          }
-        }
-      }
-    }
-    for ( var i = 0; i<4; i++ ) {
-      if ( position_props[i*2+1][3] !== 0 && position_props[i*2+9][3] !== 0 && position_props[i*2+17][3] !== 0 ) {
-        if ( position_props[i*2+1][3] < 12 && position_props[i*2+9][3] < 12 && position_props[i*2+17][3] < 12 ) {
-          test_tokens_in_dhadi.push(position_props[i*2+1][3], position_props[i*2+9][3], position_props[i*2+17][3]);
-        }
-        else if ( position_props[i*2+1][3] > 11 && position_props[i*2+9][3] > 11 && position_props[i*2+17][3] > 11 ) {
-          test_tokens_in_dhadi.push(position_props[i*2+1][3], position_props[i*2+9][3], position_props[i*2+17][3]);
-        }
-      }
-    }
-    position_props[pos_id-1][3] = 0;
-    if( difference(test_tokens_in_dhadi, old_tokens_in_dhadi).length > 0 ){
-      return 1;
-    }
-    else {
-      return 0;
-    }
-  }
-  else {
-    for (var i = 0; i < 12; i++) {
-      if( position_props[i*2][0] === 1 && position_props[i*2][1] === 3 ) {
-        if( position_props[i*2][3] !== 0 && position_props[i*2+1][3] !== 0 && position_props[i*2-6][3] !== 0 ) {
-          if ( position_props[i*2][3] < 12 && position_props[i*2+1][3] < 12 && position_props[i*2-6][3] < 12 ) {
-            tokens_in_dhadi.push(position_props[i*2][3], position_props[i*2+1][3], position_props[i*2-6][3]);
-            dhadi_tokens_list.push([position_props[i*2][3], position_props[i*2+1][3], position_props[i*2-6][3]]);
-          }
-          else if ( position_props[i*2][3] > 11 && position_props[i*2+1][3] > 11 && position_props[i*2-6][3] > 11 ) {
-            tokens_in_dhadi.push(position_props[i*2][3], position_props[i*2+1][3], position_props[i*2-6][3]);
-            dhadi_tokens_list.push([position_props[i*2][3], position_props[i*2+1][3], position_props[i*2-6][3]]);
-          }
-        }
-      }
-      else {
-        if( position_props[i*2][3] !== 0 && position_props[i*2+1][3] !== 0 && position_props[i*2+2][3] !== 0 ) {
-          if ( position_props[i*2][3] < 12 && position_props[i*2+1][3] < 12 && position_props[i*2+2][3] < 12 ) {
-            tokens_in_dhadi.push(position_props[i*2][3], position_props[i*2+1][3], position_props[i*2+2][3]);
-            dhadi_tokens_list.push([position_props[i*2][3], position_props[i*2+1][3], position_props[i*2+2][3]]);
-          }
-          else if ( position_props[i*2][3] > 11 && position_props[i*2+1][3] > 11 && position_props[i*2+2][3] > 11 ) {
-            tokens_in_dhadi.push(position_props[i*2][3], position_props[i*2+1][3], position_props[i*2+2][3]);
-            dhadi_tokens_list.push([position_props[i*2][3], position_props[i*2+1][3], position_props[i*2+2][3]]);
-          }
-        }
-      }
-    }
-    for ( var i = 0; i<4; i++ ) {
-      if ( position_props[i*2+1][3] !== 0 && position_props[i*2+9][3] !== 0 && position_props[i*2+17][3] !== 0 ) {
-        if ( position_props[i*2+1][3] < 12 && position_props[i*2+9][3] < 12 && position_props[i*2+17][3] < 12 ) {
-          tokens_in_dhadi.push(position_props[i*2+1][3], position_props[i*2+9][3], position_props[i*2+17][3]);
-          dhadi_tokens_list.push([position_props[i*2+1][3], position_props[i*2+9][3], position_props[i*2+17][3]]);
-        }
-        else if ( position_props[i*2+1][3] > 11 && position_props[i*2+9][3] > 11 && position_props[i*2+17][3] > 11 ) {
-          tokens_in_dhadi.push(position_props[i*2+1][3], position_props[i*2+9][3], position_props[i*2+17][3]);
-          dhadi_tokens_list.push([position_props[i*2+1][3], position_props[i*2+9][3], position_props[i*2+17][3]]);
-        }
-      }
-    }
-    //console.log("tokens in dhadi are: "+tokens_in_dhadi);
-    for ( var i = 0; i < dhadi_tokens_list.length; i++ ) {
-      if ( dhadi_tokens_list[i].every(element => old_tokens_in_dhadi.includes(element)) ) {
-      }
-      else {
-        new_tokens_in_dhadi[0] = dhadi_tokens_list[i][0];
-        new_tokens_in_dhadi[1] = dhadi_tokens_list[i][1];
-        new_tokens_in_dhadi[2] = dhadi_tokens_list[i][2];
-      }
-    }
-    old_tokens_in_dhadi = tokens_in_dhadi;
-    tokens_in_dhadi = [];
-    dhadi_tokens_list = [];
-  }
-}
-
-function send_move (token_id, pos_id) {
+function send_move (token_obj, pos_id) {
   $.post("add_move.php",
   {
     gcode: gcode,
     player: player,
-    token_id: token_id,
+    token_id: token_obj.id,
     new_pos_id: pos_id
   },
   function(data, status){
@@ -1245,7 +1135,7 @@ function show_pointers () {
   if ( selected_token_obj.status === "sleep" ) {
     console.log("selected token was in sleep");
     for (var i = 0; i < 24; i++) {
-      if ( position_props[i][3] !== 0 || (check_new_dhadi(i+1) === 1 && cannot_kill() === 1) ) {
+      if ( position_props[i][3] !== 0 ) {
         continue;
       }
       else{
@@ -1253,11 +1143,12 @@ function show_pointers () {
       }
     }
   }
+
   if ( selected_token_obj.status === "onboard" ) {
     console.log("selected token was onboard");
      var curr_pos_props = position_props[selected_token_obj.pos_id - 1];
      for (var i = 0; i < 24; i++) {
-       if ( position_props[i][3] === 0 && !(check_new_dhadi(i+1) === 1 && cannot_kill() === 1)) {
+       if ( position_props[i][3] === 0 ) {
          var check_pos_props = position_props[i];
          var x = Math.abs(curr_pos_props[0] - check_pos_props[0]);
          x += Math.abs(curr_pos_props[1] - check_pos_props[1]);
@@ -1270,22 +1161,6 @@ function show_pointers () {
          }
        }
      }
-  }
-}
-
-function show_dhadi_pointers () {
-  console.log("showing dhadi pointers");
-  for (var i = 0; i < new_tokens_in_dhadi.length; i++) {
-    pointers[tokens_list[new_tokens_in_dhadi[i]-1].pos_id-1].style.display = "block";
-  }
-}
-
-function show_opp_token_pointers () {
-  console.log("showing opponent token pointers");
-  for ( var i = 0; i < 24; i++) {
-    if ( ((position_props[i][3] > 11 && player === 1) || (position_props[i][3] < 12 && position_props[i][3] !== 0 && player === 2)) && !old_tokens_in_dhadi.includes(position_props[i][3]) ) {
-      pointers[tokens_list[position_props[i][3]-1].pos_id-1].style.display = "block";
-    }
   }
 }
 
@@ -1320,9 +1195,6 @@ function canclickont(callback, token_obj) {
 
 function check_opp_move() {
   console.log("entered check_opp_move function");
-  console.log("new_tokens_in_dhadi: "+new_tokens_in_dhadi);
-  console.log("old_tokens_in_dhadi: "+old_tokens_in_dhadi);
-  console.log("tokens_in_dhadi: "+tokens_in_dhadi);
   if ( (move_no%2 === 0 && player === 1) || (move_no%2 !== 0 && player === 2) ) {
     console.log("checking for opponent move");
     $.ajax({
@@ -1335,103 +1207,18 @@ function check_opp_move() {
       success: function(data) {
         console.log(data);
         if ( data !== "waiting" ) {
-          if ( data !== opp_last_move_data) {
-            if ( parseInt(data.split(",")[0]) === 0 ) {
-              alert("Game Draw!!, you'll be returned to the home screen");
-              window.location.replace("http://localhost/dhadi/");
-            }
-            if ( parseInt(data.split(",")[0]) === 23 ) {
-              alert("You Win!, you'll be returned to the home screen");
-              window.location.replace("http://localhost/dhadi/");
-            }
-            opp_last_move_data = data;
+          if ( data !== opp_last_move_data || opp_last_move_data === null) {
+            var opp_last_move_data = data;
             opp_move_token_obj = tokens_list[parseInt(data.split(",")[0])-1];
             var opp_move_pos_id = parseInt(data.split(",")[1]);
-            move_no++;
             move(opp_move_token_obj, opp_move_pos_id);
-            if ( opp_move_pos_id === 0 ) {
-              position_props[opp_move_token_obj.pos_id-1][3] = 0;
-              opp_move_token_obj.pos_id = 0;
-              opp_move_token_obj.status = "dead";
-              new_tokens_in_dhadi = [];
-            }
           }
         }
-        /*if ( can_move() === 0 ) {
-          send_move(0, 0);
-          alert("Game Draw!!, you'll be returned to the home screen");
-          window.location.replace("http://localhost/dhadi/");
-        }*/
       }
     });
   }
   setTimeout('check_opp_move()', 500);
 }
 
-function difference(a, b) {
-    return [...b.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) - 1),
-            a.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) + 1), new Map() )
-    )].reduce( (acc, [v, count]) => acc.concat(Array(Math.abs(count)).fill(v)), [] );
-}
 
-/*function difference(a, b) {
-  var a_grouped = [];
-  var b_grouped = [];
-  var result = [];
-  for ( var i = 0; i < a.length/3; i++ ) {
-    a_grouped[i] = [a[i*3], a[i*3+1], a[i*3+2]];
-  }
-  for ( var i = 0; i < b.length/3; i++ ) {
-    b_grouped[i] = [b[i*3], b[i*3+1], b[i*3+2]];
-  }
-  for ( var i = 0; i < a_grouped.length; i++ ) {
-    if ( !b_grouped.includes(a_grouped[i]) ) {
-      result[i*3] = a_grouped[i][0];
-      result[i*3+1] = a_grouped[i][1];
-      result[i*3+2] = a_grouped[i][2];
-    }
-  }
-  return result;
-}*/
-
-function cannot_kill () {
-  if ( player === 2 ) {
-    for ( var i = 0; i < 11; i++ ) {
-      if ( !old_tokens_in_dhadi.includes(tokens_list[i].id) && tokens_list[i].status === "onboard" ) {
-        return 0;
-      }
-    }
-  }
-  else {
-    for ( var i = 11; i < 22; i++ ) {
-      if ( !old_tokens_in_dhadi.includes(tokens_list[i].id) && tokens_list[i].status === "onboard" ) {
-        return 0;
-      }
-    }
-  }
-  return 1;
-}
-
-function check_game_over() {
-  var count = 0;
-  if ( move_no > 0 && not_in_sleep === 11 ) {
-    for ( var i = 0; i < 24; i++ ) {
-      if ( position_props[i][3] > 11*(player-1) && position_props[i][3] < 11*player+1 ) {
-        count++;
-      }
-    }
-    if ( count === 0 ) {
-      send_move(23, 23);
-      $.ajax({
-          url: "delete_tables.php",
-          type: "POST",
-          data: {
-                  gcode: gcode
-                }
-      });
-      alert("You Lose!, you'll be returned to the home screen");
-      window.location.replace("http://localhost/dhadi/");
-    }
-  }
-}
 </script>
